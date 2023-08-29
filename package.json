@@ -10,7 +10,7 @@
     "@types/node": "^16.18.46",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "antd": "^5.8.5",
+    "antd": "^4.24.0",
     "axios": "^1.5.0",
     "dva": "^2.6.0-beta.20",
     "react": "^18.2.0",
