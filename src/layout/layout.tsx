@@ -9,6 +9,11 @@ import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 import './layout.css';
 import { menus } from './layout.config';
+import { Route } from 'dva/router';
+import BannerManage from '../pages/BannerManage/BannerManage';
+import ActivityManage from '../pages/ActivityManage/ActivityManage';
+import RegisterManage from '../pages/RegisterManage/RegisterMange';
+import AdminUserManage from '../pages/AdminUserManage/AdminUserManage';
 
 const { Header, Sider, Content } = Layout;
 
@@ -41,7 +46,18 @@ const App: React.FC = () => {
             minHeight: 280,
           }}
         >
-          Content
+          <Route path="/bannerManage">
+            <BannerManage />
+          </Route>
+          <Route path="/activityManage">
+            <ActivityManage />
+          </Route>
+          <Route path="/registerManage">
+            <RegisterManage />
+          </Route>
+          <Route path="/adminUserManage">
+            <AdminUserManage />
+          </Route>
         </Content>
       </Layout>
     </Layout>
