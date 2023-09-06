@@ -13,13 +13,17 @@ import { Route } from 'dva/router';
 import BannerManage from '../pages/BannerManage/BannerManage';
 import ActivityManage from '../pages/ActivityManage/ActivityManage';
 import RegisterManage from '../pages/RegisterManage/RegisterMange';
+import RegisterUserCheck from '../pages/RegisterUserCheck/RegisterUserCheck';
 import AdminUserManage from '../pages/AdminUserManage/AdminUserManage';
+import { MenuInfo } from 'rc-menu/lib/interface'
 
 const { Header, Sider, Content } = Layout;
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const linkPage = ({ key }: MenuInfo) => {
 
+  }
   return (
     <Layout id="layout">
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -29,6 +33,7 @@ const App: React.FC = () => {
           mode="inline"
           defaultSelectedKeys={['1']}
           items={menus}
+          onClick={linkPage}
         />
       </Sider>
       <Layout className="site-layout">
