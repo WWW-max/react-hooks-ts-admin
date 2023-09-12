@@ -12,17 +12,18 @@ import { menus } from './layout.config';
 import { Route } from 'dva/router';
 import BannerManage from '../pages/BannerManage/BannerManage';
 import ActivityManage from '../pages/ActivityManage/ActivityManage';
-import RegisterManage from '../pages/RegisterManage/RegisterMange';
+import AdminUserAdmin from '../pages/AdminUserAdmin/AdminUserAdmin';
 import RegisterUserCheck from '../pages/RegisterUserCheck/RegisterUserCheck';
 import AdminUserManage from '../pages/AdminUserManage/AdminUserManage';
 import { MenuInfo } from 'rc-menu/lib/interface'
-
+import { useHistory } from 'dva/router';
 const { Header, Sider, Content } = Layout;
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const history = useHistory();
   const linkPage = ({ key }: MenuInfo) => {
-
+    history.push(key);
   }
   return (
     <Layout id="layout">
@@ -57,11 +58,11 @@ const App: React.FC = () => {
           <Route path="/activityManage">
             <ActivityManage />
           </Route>
-          <Route path="/registerManage">
-            <RegisterManage />
+          <Route path="/userManage/registerUserCheck">
+            <RegisterUserCheck />
           </Route>
-          <Route path="/adminUserManage">
-            <AdminUserManage />
+          <Route path="/userManage/adminUserAdmin">
+            <AdminUserAdmin />
           </Route>
         </Content>
       </Layout>

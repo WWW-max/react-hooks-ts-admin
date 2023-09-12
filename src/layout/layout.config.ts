@@ -16,7 +16,7 @@ export const menus = [
                 key: '/userManage/registerUserCheck',
                 label: '注册用户审核',
             },{
-                key: '/userManage/adminUserManage',
+                key: '/userManage/adminUserAdmin',
                 label: '后台用户管理'
             }
         ]

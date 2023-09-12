@@ -1,4 +1,4 @@
-export default function RegisterManage() {
+export default function AdminUserAdmin() {
     return (
         <div>
             用户管理
