@@ -5,7 +5,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
+import { Button, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 import './layout.css';
 import { menus } from './layout.config';
@@ -17,6 +17,7 @@ import RegisterUserCheck from '../pages/RegisterUserCheck/RegisterUserCheck';
 import AdminUserManage from '../pages/AdminUserManage/AdminUserManage';
 import { MenuInfo } from 'rc-menu/lib/interface'
 import { useHistory } from 'dva/router';
+import Login from '../pages/Login/Login';
 const { Header, Sider, Content } = Layout;
 
 const App: React.FC = () => {
@@ -24,6 +25,9 @@ const App: React.FC = () => {
   const history = useHistory();
   const linkPage = ({ key }: MenuInfo) => {
     history.push(key);
+  }
+  const logout = () => {
+    history.push('/login');
   }
   return (
     <Layout id="layout">
@@ -39,10 +43,13 @@ const App: React.FC = () => {
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            className: 'trigger',
-            onClick: () => setCollapsed(!collapsed),
-          })}
+          <div className="header-box">
+            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+              className: 'trigger',
+              onClick: () => setCollapsed(!collapsed),
+            })}
+            <Button type='link' className="header-btn" onClick={logout}>退出登录</Button>
+          </div>
         </Header>
         <Content
           className="site-layout-background"
@@ -52,6 +59,9 @@ const App: React.FC = () => {
             minHeight: 280,
           }}
         >
+          <Route>
+            <Login />
+          </Route>
           <Route path="/bannerManage">
             <BannerManage />
           </Route>
