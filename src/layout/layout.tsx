@@ -9,7 +9,7 @@ import { Button, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 import './layout.css';
 import { menus } from './layout.config';
-import { Route } from 'dva/router';
+import { Route, Switch } from 'dva/router';
 import BannerManage from '../pages/BannerManage/BannerManage';
 import ActivityManage from '../pages/ActivityManage/ActivityManage';
 import AdminUserAdmin from '../pages/AdminUserAdmin/AdminUserAdmin';
@@ -59,21 +59,20 @@ const App: React.FC = () => {
             minHeight: 280,
           }}
         >
-          <Route>
-            <Login />
-          </Route>
-          <Route path="/bannerManage">
-            <BannerManage />
-          </Route>
-          <Route path="/activityManage">
-            <ActivityManage />
-          </Route>
-          <Route path="/userManage/registerUserCheck">
-            <RegisterUserCheck />
-          </Route>
-          <Route path="/userManage/adminUserAdmin">
-            <AdminUserAdmin />
-          </Route>
+          <Switch>
+            <Route path="/bannerManage">
+              <BannerManage />
+            </Route>
+            <Route path="/activityManage">
+              <ActivityManage />
+            </Route>
+            <Route path="/userManage/registerUserCheck">
+              <RegisterUserCheck />
+            </Route>
+            <Route path="/userManage/adminUserAdmin">
+              <AdminUserAdmin />
+            </Route>
+          </Switch>
         </Content>
       </Layout>
     </Layout>
