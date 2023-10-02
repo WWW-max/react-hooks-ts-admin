@@ -1,9 +1,12 @@
 import { Form, Input, Card, Button } from 'antd';
 import './Login.scss';
 import { ILoginParams } from './Login.type';
+import API from './../../api';
+
 export default function Login() {
-    const login = (values: ILoginParams) => {
-        console.log('values', values);
+    const login = async (values: ILoginParams) => {
+        /** 调登录接口，并且传对应的登录参数 */
+        const data = await API.login(values);
     }
     return (
         <div id="login">
