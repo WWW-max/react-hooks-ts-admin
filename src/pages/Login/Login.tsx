@@ -7,6 +7,12 @@ export default function Login() {
     const login = async (values: ILoginParams) => {
         /** 调登录接口，并且传对应的登录参数 */
         const data = await API.login(values);
+        /**
+         * 调用完接口，拿到token和登录角色信息
+         * 将token全局封装到axios中
+         * 使用角色过滤对应菜单
+         * 跳转到欢迎页面
+         */
     }
     return (
         <div id="login">
